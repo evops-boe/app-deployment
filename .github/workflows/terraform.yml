@@ -6,7 +6,9 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
+      # Clones main repo
+      - uses: actions/checkout@v2
+      # Clones shared actions repository
       - uses: actions/checkout@v2
         with:
           repository: evops-boe/actions
