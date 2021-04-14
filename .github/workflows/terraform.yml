@@ -10,6 +10,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: evops-boe/actions@master
-          token: ${{ secret.SHARED_ACTIONS_PRIVATE_KEY }}
+          token: ${{ secrets.SHARED_ACTIONS_PRIVATE_KEY }}
           path: shared-actions
       - uses: shared-actions/actions/terraform
