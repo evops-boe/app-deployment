@@ -9,7 +9,8 @@ jobs:
       - run: echo "Hello World"
       - uses: actions/checkout@v2
         with:
-          repository: evops-boe/actions@master
+          repository: evops-boe/actions
+          ref: master
           ssh-key: ${{ secrets.SHARED_ACTIONS_PRIVATE_KEY }}
           persist-credentials: "false"
           path: shared-actions
