@@ -6,4 +6,10 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     steps:
-      - uses: evops-boe/actions@master
+      - run: echo "Hello World"
+      - uses: actions/checkout@v2
+        with:
+          repository: evops-boe/actions@master
+          token: ${{ secret.SHARED_ACTIONS_PRIVATE_KEY }}
+          path: shared-actions
+      - uses: shared-actions/actions/terraform
