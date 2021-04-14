@@ -1,0 +1,9 @@
+name: Terraform
+
+on: push
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: evops-boe/actions@master
