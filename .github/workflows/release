@@ -1,0 +1,29 @@
+name: Terraform
+
+on: push
+
+jobs:
+  deploy_dev:
+    environment: dev
+    runs-on: ubuntu-20.04
+    steps:
+      - script: echo Hello World
+        shell: bash
+
+  deploy_uat:
+    environment: uat
+    needs:
+    - deploy_dev
+    runs-on: ubuntu-20.04
+    steps:
+      - script: echo Hello World
+        shell: bash
+        
+  deploy_prod:
+    environment: prod
+    needs:
+    - deploy_uat
+    runs-on: ubuntu-20.04
+    steps:
+      - script: echo Hello World
+        shell: bash
