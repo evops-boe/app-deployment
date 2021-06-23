@@ -3,7 +3,15 @@ name: Release
 on: push
 
 jobs:
+  feature_branch:
+    environment: dev
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo "Running terraform plan"
+        shell: bash
+
   deploy_dev:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     environment: dev
     runs-on: ubuntu-20.04
     steps:
@@ -11,18 +19,20 @@ jobs:
         shell: bash
 
   deploy_uat:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     environment: uat
     needs:
-    - deploy_dev
+      - deploy_dev
     runs-on: ubuntu-20.04
     steps:
       - run: echo Hello World Uat
         shell: bash
-        
+
   deploy_prod:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     environment: prod
     needs:
-    - deploy_uat
+      - deploy_uat
     runs-on: ubuntu-20.04
     steps:
       - run: echo Hello World Prod
