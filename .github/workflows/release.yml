@@ -17,7 +17,7 @@ jobs:
     environment: dev
     runs-on: ubuntu-20.04
     steps:
-      - run: echo Hello World Dev
+      - run: env
         shell: bash
 
   deploy_uat:
@@ -27,7 +27,7 @@ jobs:
       - deploy_dev
     runs-on: ubuntu-20.04
     steps:
-      - run: echo Hello World Uat
+      - run: env
         shell: bash
 
   deploy_prod:
@@ -37,5 +37,5 @@ jobs:
       - deploy_uat
     runs-on: ubuntu-20.04
     steps:
-      - run: echo Hello World Prod
+      - run: env
         shell: bash
