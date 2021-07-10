@@ -3,8 +3,18 @@ name: stan
 on: [push]
 
 jobs:
-  env:
+  env1:
     runs-on: ubuntu-20.04
+    environment: env1
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      
+  env2:
+    runs-on: ubuntu-20.04
+    environment: env2
     steps:
       - name: Dump GitHub context
         env:
